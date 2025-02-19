@@ -1,5 +1,6 @@
 package Gen1802.Desafio2;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Calculadora
@@ -15,10 +16,11 @@ public class Calculadora
         boolean flagMenu = true;
         Scanner sc = new Scanner(System.in);
 
-        menu();
+
 
         while (flagMenu)
         {
+            menu();
 
 
             int opcion;
@@ -29,7 +31,7 @@ public class Calculadora
                 flagCalc = true;
             } else if (opcion == 2)
             {
-                flagCalc = false;
+                flagMenu = false;
             }
 
             while (flagCalc)
@@ -71,7 +73,8 @@ public class Calculadora
                 System.out.println(valor1 + " " + operacion + " " + valor2 + " = " + resultado);
                 System.out.println("\n");
                 System.out.println("¿Desea realizar otra operacion?\n(s/n)");
-                if (entrada.nextLine().equals("n")) flagCalc = false;
+                operacion = entrada.nextLine();
+                if (Objects.equals(operacion, "n")) flagCalc = false;
             }
 
 
